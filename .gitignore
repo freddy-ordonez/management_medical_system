@@ -1,0 +1,62 @@
+# Build results
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+*.log
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio files
+.vs/
+*.vc.db
+*.VC.opendb
+
+# ASP.NET temporary files
+**/wwwroot/lib/
+**/wwwroot/dist/
+**/wwwroot/node_modules/
+
+# NuGet packages
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Web config transforms
+web.*.config
+
+# Rider files
+.idea/
+
+# Logs
+*.log
+
+# Node modules (si usas npm o frontend moderno)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Secrets
+secrets.json
+appsettings.*.json
+
+# Environment files
+.env
+.env.*
+
+# Coverage reports
+coverage/
+
+# Publish outputs
+publish/
+*.Publish.xml
+
+# Others
+*.DS_Store
+Thumbs.db
