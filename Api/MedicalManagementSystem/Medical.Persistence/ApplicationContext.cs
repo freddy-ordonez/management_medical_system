@@ -1,4 +1,5 @@
 ﻿using Medical.Domain.Entities;
+using Medical.Persistence.Configuration;
 using Microsoft.EntityFrameworkCore;
 
 namespace Medical.Persistence
@@ -14,6 +15,7 @@ namespace Medical.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            EntityConfiguration(modelBuilder);
         }
 
         public DbSet<User> Users { get; set; }
@@ -25,5 +27,19 @@ namespace Medical.Persistence
         public DbSet<Receipt> Billings { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+
+
+        private void EntityConfiguration(ModelBuilder modelBuilder)
+        {
+            new AppointmentConfiguration(modelBuilder.Entity<Appointment>());
+            new RoleConfiguration(modelBuilder.Entity<Role>());
+            new DoctorConfiguration(modelBuilder.Entity<Doctor>());
+            new DoctorSpecialtyConfiguration(modelBuilder.Entity<DoctorSpecialty>());
+            new NotificationConfiguration(modelBuilder.Entity<Notification>());
+            new PatientConfiguration(modelBuilder.Entity<Patient>());
+            new ReceiptConfiguration(modelBuilder.Entity<Receipt>());
+            new SpecialtyConfiguration(modelBuilder.Entity<Specialty>());
+            new UserConfiguration(modelBuilder.Entity<User>());
+        }
     }
 }
