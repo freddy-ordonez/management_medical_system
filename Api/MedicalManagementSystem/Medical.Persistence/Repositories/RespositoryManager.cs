@@ -18,8 +18,8 @@ namespace Medical.Persistence.Repositories
         public RespositoryManager(ApplicationContext applicationContext)
         {
             this._context = applicationContext;
-            this._appointmentRepository = new Lazy<IAppointmentRepository>();
-            this._doctorRepository = new Lazy<IDoctorRepository>();
+            this._appointmentRepository = new Lazy<IAppointmentRepository>(new AppointmentRepository(_context));
+            this._doctorRepository = new Lazy<IDoctorRepository>(new DoctorRepository(_context));
             this._doctorSpecialityRepository = new Lazy<IDoctorSpecialityRepository>();
             this._notificationRepository = new Lazy<INotificationRepository>();
             this._patientRepository = new Lazy<IPatientRepository>();   

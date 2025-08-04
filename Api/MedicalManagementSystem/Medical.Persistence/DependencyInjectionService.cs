@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Medical.Domain.Repositories;
+using Medical.Persistence.Repositories;
 
 namespace Medical.Persistence
 {
@@ -8,9 +10,10 @@ namespace Medical.Persistence
     {
         public static IServiceCollection AddPersistenceServices(this IServiceCollection service, IConfiguration config)
         {
+            service.AddScoped<IRepositoryManager, RespositoryManager>();
             service.AddDbContext<ApplicationContext>(options =>
             {
-                options.UseSqlServer(config["DefaultConnection"]);
+                options.UseSqlServer(config.GetConnectionString("DefaultConnection"));
             });
 
             return service;
