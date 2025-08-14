@@ -1,6 +1,6 @@
 ﻿namespace Medical.Domain.Repositories
 {
-    public interface IPatientRepository
+    public interface IReceiptRepository
     {
 
     }
