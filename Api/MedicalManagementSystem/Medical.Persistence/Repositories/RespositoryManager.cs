@@ -9,7 +9,7 @@ namespace Medical.Persistence.Repositories
         private readonly Lazy<IDoctorRepository> _doctorRepository;
         private readonly Lazy<IDoctorSpecialityRepository> _doctorSpecialityRepository;
         private readonly Lazy<INotificationRepository> _notificationRepository;
-        private readonly Lazy<IReceiptRepository> _patientRepository;
+        private readonly Lazy<IPatientRepository> _patientRepository;
         private readonly Lazy<IReceiptRepository> _receiptRepository;
         private readonly Lazy<IRoleRepository> _roleRepository;
         private readonly Lazy<ISpecialtyRepository> _specialtyRepository;
@@ -21,9 +21,9 @@ namespace Medical.Persistence.Repositories
             this._appointmentRepository = new Lazy<IAppointmentRepository>(new AppointmentRepository(_context));
             this._doctorRepository = new Lazy<IDoctorRepository>(new DoctorRepository(_context));
             this._doctorSpecialityRepository = new Lazy<IDoctorSpecialityRepository>(new DoctorSpecialityRepository(_context));
-            this._notificationRepository = new Lazy<INotificationRepository>();
-            this._patientRepository = new Lazy<IReceiptRepository>();   
-            this._receiptRepository = new Lazy<IReceiptRepository>();
+            this._notificationRepository = new Lazy<INotificationRepository>(new NotificationRepository(_context));
+            this._patientRepository = new Lazy<IPatientRepository>( new PatientRepository(_context));   
+            this._receiptRepository = new Lazy<IReceiptRepository>( new ReceiptRepository(_context));
             this._roleRepository = new Lazy<IRoleRepository>();
             this._specialtyRepository = new Lazy<ISpecialtyRepository>();
             this._userRepository = new Lazy<IUserRepository>();
@@ -38,7 +38,7 @@ namespace Medical.Persistence.Repositories
 
         public INotificationRepository NotificationRepository => _notificationRepository.Value;
 
-        public IReceiptRepository PatientRepository => _patientRepository.Value;
+        public IPatientRepository PatientRepository => _patientRepository.Value;
 
         public IReceiptRepository ReceiptRepository => _receiptRepository.Value;
 

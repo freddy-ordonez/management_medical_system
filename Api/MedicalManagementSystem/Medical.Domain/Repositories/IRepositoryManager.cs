@@ -6,7 +6,7 @@
         IDoctorRepository DoctorRepository { get; }
         IDoctorSpecialityRepository DoctorSpecialityRepository { get; }
         INotificationRepository NotificationRepository { get; }
-        IReceiptRepository PatientRepository { get; }
+        IPatientRepository PatientRepository { get; }
         IReceiptRepository ReceiptRepository { get; }
         IRoleRepository RoleRepository { get; }
         ISpecialtyRepository SpecialtyRepository { get; }
