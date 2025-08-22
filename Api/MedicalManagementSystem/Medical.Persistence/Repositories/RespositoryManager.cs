@@ -24,9 +24,9 @@ namespace Medical.Persistence.Repositories
             this._notificationRepository = new Lazy<INotificationRepository>(new NotificationRepository(_context));
             this._patientRepository = new Lazy<IPatientRepository>( new PatientRepository(_context));   
             this._receiptRepository = new Lazy<IReceiptRepository>( new ReceiptRepository(_context));
-            this._roleRepository = new Lazy<IRoleRepository>();
-            this._specialtyRepository = new Lazy<ISpecialtyRepository>();
-            this._userRepository = new Lazy<IUserRepository>();
+            this._roleRepository = new Lazy<IRoleRepository>(new RoleRepository(_context));
+            this._specialtyRepository = new Lazy<ISpecialtyRepository>(new SpecialtyRepository(_context));
+            this._userRepository = new Lazy<IUserRepository>(new UserRepository(_context));
 
         }
 
