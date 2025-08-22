@@ -1,11 +1,13 @@
 using Medical.Api.Extensions;
+using Medical.Application;
 using Medical.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services
-    .AddPersistenceServices(builder.Configuration);
+    .AddPersistenceServices(builder.Configuration)
+    .AddApplicationServices();
 builder.Services.AddControllers();
 
 var app = builder.Build();

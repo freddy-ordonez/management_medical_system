@@ -1,8 +1,10 @@
-﻿namespace Medical.Domain
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace Medical.Domain
 {
     public static class DependencyInjectionService
     {
-        public static IServiceProvider AddDomainServices(this IServiceProvider service)
+        public static IServiceCollection AddDomainServices(this IServiceCollection service)
         {
             return service;
         }
