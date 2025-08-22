@@ -1,3 +1,4 @@
+using Medical.Api.Extensions;
 using Medical.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.ConfigureExceptionHandler();
 app.MapControllers();
 
 app.Run();
