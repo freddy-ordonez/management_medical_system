@@ -1,6 +1,6 @@
 ﻿namespace Medical.Domain.Dto.Appointment
 {
-    public record AppointmentForUpdate
+    public record AppointmentForUpdateDto
     {
         public int? PatientID { get; init; }
         public int? DoctorID { get; init; }

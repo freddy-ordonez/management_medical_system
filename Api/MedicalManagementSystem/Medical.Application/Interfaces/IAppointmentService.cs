@@ -6,7 +6,8 @@ namespace Medical.Application.Interfaces
     {
         Task<IEnumerable<AppointmentDto>> GetAllAppointmentAsync(bool trackChanges);
         Task<AppointmentDto> GetAppointmentByIdAsync(int appointmentId, bool trackChanges);
-        Task CreateAppointmentAsync(AppointmentForCreationDto appointmentForCreationDto);
+        Task<AppointmentDto> CreateAppointmentAsync(AppointmentForCreationDto appointmentForCreationDto);
+        Task UpdateAppointmentAsync(AppointmentForUpdateDto appointmentForUpdateDto, int appointmentId, bool trackChanges);
         Task DeleteAppointmentAsync(int appointmentId, bool trackChanges);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Medical.Domain.Entities.ErrorModel;
+using Medical.Domain.Entities.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 
 namespace Medical.Api.Extensions
@@ -20,6 +21,7 @@ namespace Medical.Api.Extensions
                     {
                         context.Response.StatusCode = contextFeacture.Error switch
                         {
+                            NotFoundException => StatusCodes.Status404NotFound,
                             _ => StatusCodes.Status500InternalServerError
                         };
 
